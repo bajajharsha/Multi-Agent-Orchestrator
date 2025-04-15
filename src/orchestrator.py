@@ -1,3 +1,6 @@
+import sys
+from colorama import Fore, Style
+
 from src.agents.base_agent import Agent
 from src.utils.json_parser import json_parser
 from src.prompts.orchestrator_prompt import USER_PROMPT, SYSTEM_PROMPT
@@ -54,31 +57,30 @@ class AgentOrchestrator:
                 print(f"*******************Found Agent Name :: {action} *******************************")
                 agent_response = await agent.process_input(user_input)
                 print(f"{action} response: {agent_response}")
-                self.memory.append(f"Agent Response for Task: {agent_response}")
+                self.memory.append(f"Agent t for Task: {agent_response}")
                 print(self.memory)
                 return agent_response  
         
     async def run(self):
-        print("LLM Agent: Hello! How can I assist you today?")
-        user_input = input("You: ")
+        print(f"{Fore.CYAN}LLM Agent: Hello! How can I assist you today?{Style.RESET_ALL}")
+        user_input = input(f"{Fore.YELLOW}You: {Style.RESET_ALL}")
         self.memory.append(f"User: {user_input}")
-        
+
         while True:
             if user_input.lower() in ["exit", "bye", "close"]:
-                print("LLM Agent: Goodbye!")
+                print(f"{Fore.CYAN}LLM Agent: Goodbye!{Style.RESET_ALL}")
                 break
-            
+
             response = await self.orchestrate_task(user_input)
-            
-            print(f"Final response of orchestrator {response}")
-            
+
+            print(f"{Fore.GREEN}Final response: {response}{Style.RESET_ALL}")
+
             if isinstance(response, dict) and response["action"] == "respond_to_user":                
-                # print(f"Reponse from Agent: {response['input']}")
-                user_input = input("You: ") 
+                user_input = input(f"{Fore.YELLOW}You: {Style.RESET_ALL}") 
                 self.memory.append(f"User: {user_input}")                
             elif response == "No action or agent needed":
-                print("Reponse from Agent: ", response)
-                user_input = input("You: ")
+                print(f"{Fore.MAGENTA}Response from Agent: {response}{Style.RESET_ALL}")
+                user_input = input(f"{Fore.YELLOW}You: {Style.RESET_ALL}")
             else:
-                user_input = response  
-            
+                user_input = response
+
