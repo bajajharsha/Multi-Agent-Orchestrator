@@ -1,0 +1,81 @@
+2025-04-14 11:57:35,325 - DEBUG - Using selector: KqueueSelector
+2025-04-14 11:57:52,218 - DEBUG - Context: User: what is the weatjer in punjan an what is the time?
+2025-04-14 11:57:52,258 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-04-14 11:57:52,324 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ec0390>
+2025-04-14 11:57:52,324 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x102da7c80> server_hostname='api.groq.com' timeout=5.0
+2025-04-14 11:57:52,371 - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ec0450>
+2025-04-14 11:57:52,371 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:52,372 - DEBUG - send_request_headers.complete
+2025-04-14 11:57:52,372 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-14 11:57:52,372 - DEBUG - send_request_body.complete
+2025-04-14 11:57:52,372 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:52,575 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Apr 2025 06:27:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'930123ccbd6b3b2d-BOM'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Vary', b'Origin, Accept-Encoding'), (b'X-Groq-Region', b'gcp-asia-south1'), (b'X-Ratelimit-Limit-Requests', b'1000'), (b'X-Ratelimit-Limit-Tokens', b'6000'), (b'X-Ratelimit-Remaining-Requests', b'957'), (b'X-Ratelimit-Remaining-Tokens', b'5046'), (b'X-Ratelimit-Reset-Requests', b'1h0m55.308999999s'), (b'X-Ratelimit-Reset-Tokens', b'9.54s'), (b'X-Request-Id', b'req_01jrsfq70yfxq9391817wkx071'), (b'Set-Cookie', b'__cf_bm=hUAnza.DaUh.W_jK.4pmHc1AyPL5raeHqSe9hymalwA-1744612072-1.0.1.1-SDXnnRX7cNILng9P2aDHHDjflDPVHfR.Ag1d_peRAaMDr3WXN1kW5vA8hA1HLPv1MI0lpHbEh6KLZPepl8_iCiVLS1fP.7lQMe9cSHLtsAM; path=/; expires=Mon, 14-Apr-25 06:57:52 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-14 11:57:52,576 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-14 11:57:52,577 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-14 11:57:52,577 - DEBUG - receive_response_body.complete
+2025-04-14 11:57:52,577 - DEBUG - response_closed.started
+2025-04-14 11:57:52,577 - DEBUG - response_closed.complete
+2025-04-14 11:57:52,578 - DEBUG - close.started
+2025-04-14 11:57:52,578 - DEBUG - close.complete
+2025-04-14 11:57:52,578 - DEBUG - Action identified by LLM: Weather Agent
+2025-04-14 11:57:52,578 - DEBUG - *******************Found Agent Name*******************************
+2025-04-14 11:57:52,580 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-04-14 11:57:52,593 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ed7e90>
+2025-04-14 11:57:52,593 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x102e98200> server_hostname='api.groq.com' timeout=5.0
+2025-04-14 11:57:52,627 - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ed7ed0>
+2025-04-14 11:57:52,628 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:52,629 - DEBUG - send_request_headers.complete
+2025-04-14 11:57:52,629 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-14 11:57:52,629 - DEBUG - send_request_body.complete
+2025-04-14 11:57:52,629 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:52,779 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Apr 2025 06:27:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'930123ce5e2f8ee9-BOM'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Vary', b'Origin, Accept-Encoding'), (b'X-Groq-Region', b'gcp-asia-south1'), (b'X-Ratelimit-Limit-Requests', b'1000'), (b'X-Ratelimit-Limit-Tokens', b'6000'), (b'X-Ratelimit-Remaining-Requests', b'956'), (b'X-Ratelimit-Remaining-Tokens', b'4997'), (b'X-Ratelimit-Reset-Requests', b'1h3m21.342999999s'), (b'X-Ratelimit-Reset-Tokens', b'10.023999999s'), (b'X-Request-Id', b'req_01jrsfq78zfxqadhfjvfrgr6e9'), (b'Set-Cookie', b'__cf_bm=kFlSKUpg23QRRX1YzIyUCFGnSD7qIL79uj4UV7xM4zI-1744612072-1.0.1.1-W9IHreRAAtOAFXOd0fBia.1aaLGJWRIelWKziwL5bvOM9WeGG.Gd3eeMJLsEtpdQxFQTuPQEZD5zJ_NRHePXAKcCSetqGOfHyGSiaCEzK7g; path=/; expires=Mon, 14-Apr-25 06:57:52 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-14 11:57:52,780 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-14 11:57:52,780 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-14 11:57:52,780 - DEBUG - receive_response_body.complete
+2025-04-14 11:57:52,781 - DEBUG - response_closed.started
+2025-04-14 11:57:52,781 - DEBUG - response_closed.complete
+2025-04-14 11:57:52,781 - DEBUG - close.started
+2025-04-14 11:57:52,781 - DEBUG - close.complete
+2025-04-14 11:57:52,786 - DEBUG - Starting new HTTP connection (1): api.openweathermap.org:80
+2025-04-14 11:57:54,038 - DEBUG - http://api.openweathermap.org:80 "GET /data/2.5/weather?q=Punjab&appid=36eddd72a91a6e2a9df0983c24cacb38&units=metric HTTP/1.1" 200 491
+2025-04-14 11:57:54,039 - DEBUG - Weather Agent response: The weather in Punjab is currently clear sky with a temperature of 38.91°C.
+2025-04-14 11:57:54,039 - DEBUG - ['User: what is the weatjer in punjan an what is the time?', "Orchestrator: {'action': 'Weather Agent', 'input': 'What is the weather in Punjab?', 'next_action': 'Time Agent'}", 'Agent Response for Task: The weather in Punjab is currently clear sky with a temperature of 38.91°C.']
+2025-04-14 11:57:54,039 - DEBUG - Context: User: what is the weatjer in punjan an what is the time?
+Orchestrator: {'action': 'Weather Agent', 'input': 'What is the weather in Punjab?', 'next_action': 'Time Agent'}
+Agent Response for Task: The weather in Punjab is currently clear sky with a temperature of 38.91°C.
+2025-04-14 11:57:54,041 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-04-14 11:57:54,072 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ed6610>
+2025-04-14 11:57:54,072 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x102e985f0> server_hostname='api.groq.com' timeout=5.0
+2025-04-14 11:57:54,108 - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ed6410>
+2025-04-14 11:57:54,108 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:54,109 - DEBUG - send_request_headers.complete
+2025-04-14 11:57:54,109 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-14 11:57:54,109 - DEBUG - send_request_body.complete
+2025-04-14 11:57:54,109 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:54,516 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Apr 2025 06:27:54 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'930123d78d6d482c-BOM'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Vary', b'Origin, Accept-Encoding'), (b'X-Groq-Region', b'gcp-asia-south1'), (b'X-Ratelimit-Limit-Requests', b'1000'), (b'X-Ratelimit-Limit-Tokens', b'6000'), (b'X-Ratelimit-Remaining-Requests', b'955'), (b'X-Ratelimit-Remaining-Tokens', b'4207'), (b'X-Ratelimit-Reset-Requests', b'1h4m46.536s'), (b'X-Ratelimit-Reset-Tokens', b'17.921s'), (b'X-Request-Id', b'req_01jrsfq8prfxraq9xnn2qpznvz'), (b'Set-Cookie', b'__cf_bm=ETLDyPLzeOaBgCiKK1zk8gafvrM7H.RqRjhrg35R8jQ-1744612074-1.0.1.1-W0KCTTSWurDREX3S.OyhBk2Ro1BoSV_d2_ABfLl9FMKLdtAgcYe2Q8O6bU_aJkOq_jMOYHNPMiA.WMRI4jpUZeV3PbIOc1m.jjv4XIJQBAY; path=/; expires=Mon, 14-Apr-25 06:57:54 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-14 11:57:54,517 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-14 11:57:54,517 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-14 11:57:54,518 - DEBUG - receive_response_body.complete
+2025-04-14 11:57:54,518 - DEBUG - response_closed.started
+2025-04-14 11:57:54,518 - DEBUG - response_closed.complete
+2025-04-14 11:57:54,519 - DEBUG - close.started
+2025-04-14 11:57:54,519 - DEBUG - close.complete
+2025-04-14 11:57:54,519 - DEBUG - Action identified by LLM: Time Agent
+2025-04-14 11:57:54,519 - DEBUG - *******************Found Agent Name*******************************
+2025-04-14 11:57:54,521 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-04-14 11:57:54,606 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x101aba510>
+2025-04-14 11:57:54,606 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x102da7c80> server_hostname='api.groq.com' timeout=5.0
+2025-04-14 11:57:54,731 - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x102ed59d0>
+2025-04-14 11:57:54,732 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:54,732 - DEBUG - send_request_headers.complete
+2025-04-14 11:57:54,732 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-14 11:57:54,732 - DEBUG - send_request_body.complete
+2025-04-14 11:57:54,732 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-14 11:57:54,882 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 14 Apr 2025 06:27:54 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'930123db780847e0-BOM'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Vary', b'Origin, Accept-Encoding'), (b'X-Groq-Region', b'gcp-asia-south1'), (b'X-Ratelimit-Limit-Requests', b'1000'), (b'X-Ratelimit-Limit-Tokens', b'6000'), (b'X-Ratelimit-Remaining-Requests', b'954'), (b'X-Ratelimit-Remaining-Tokens', b'4202'), (b'X-Ratelimit-Reset-Requests', b'1h6m13.775999999s'), (b'X-Ratelimit-Reset-Tokens', b'17.975s'), (b'X-Request-Id', b'req_01jrsfq9a8fxrbd23pry7npwca'), (b'Set-Cookie', b'__cf_bm=stBcFaIL52cAE2n9DELMdT2GyUKwYokwJXNM.2CsJv8-1744612074-1.0.1.1-IHEuYS.tf8vC1bg5adQNqSH4M9VwqRW2xrpQ_PvQcP3frLA.iu0TNXrr062_eWIL7D1me3CUshEbXEwaAqORgnhgt8Hv2URKPJQ5YtXbpI8; path=/; expires=Mon, 14-Apr-25 06:57:54 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-14 11:57:54,883 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-14 11:57:54,883 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-14 11:57:54,884 - DEBUG - receive_response_body.complete
+2025-04-14 11:57:54,884 - DEBUG - response_closed.started
+2025-04-14 11:57:54,884 - DEBUG - response_closed.complete
+2025-04-14 11:57:54,884 - DEBUG - close.started
+2025-04-14 11:57:54,885 - DEBUG - close.complete
