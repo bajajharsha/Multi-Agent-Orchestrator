@@ -17,6 +17,7 @@ class WeatherTool(Tool):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
         response = requests.get(url)
         data = response.json()
+
         if data["cod"] == 200:
             temp = data["main"]["temp"]
             description = data["weather"][0]["description"]
@@ -24,4 +25,4 @@ class WeatherTool(Tool):
             print(response)
             return response
         else:
-            return f"Sorry, I couldn't find weather information for {location}."
+            return f"Sorry, I couldn't find weather information for {location} (HTTP Status Code: {data['cod']})."

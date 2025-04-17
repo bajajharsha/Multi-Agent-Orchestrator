@@ -4,6 +4,7 @@ from src.utils.json_parser import json_parser
 from abc import ABC, abstractmethod
 import ast
 import os
+from colorama import Fore, Style
 import json
 
 class Agent:
@@ -24,10 +25,11 @@ class Agent:
         tool_descriptions = "\n".join(f"- {tool.name()}: {tool.description()}" for tool in self.tools)
 
         
-        response_format = {"action": "","args": ""}
+        response_format = {"action": "","args": "", "reasoning": ""}
         
         user_prompt = AGENT_PROMPT.format(
             context=context,
+            user_input=user_input,
             tool_descriptions=tool_descriptions,
             response_format=response_format
         )
@@ -39,13 +41,14 @@ class Agent:
             user_prompt=user_prompt
         )
         
-        print(f"Response from LLM: {response}")
         
         res = response['choices'][0]['message']['content']
         
         self.memory.append(f"Agent: {res}")
 
         response_dict = json_parser(res)
+        
+        print(f"{Fore.LIGHTCYAN_EX}Parsed Response: {response_dict} {Style.RESET_ALL}")
         
         # Check if any tool can handle the input
         for tool in self.tools:

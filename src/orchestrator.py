@@ -16,10 +16,8 @@ class AgentOrchestrator:
     async def orchestrate_task(self, user_input: str):
         self.memory = self.memory[-self.max_memory:]
         context = "\n".join(self.memory)
-        
-        print(f"Context: {context}")
-
-        response_format = {"action":"", "input":"", "next_action":""}
+    
+        response_format = {"action":"", "input":"", "next_action":"", "reasoning": ""}
         
         response = ""
         loop_count = 0
@@ -35,7 +33,7 @@ class AgentOrchestrator:
         response = await self.llm_service.groq_api_call(
             model_name="meta-llama/llama-4-scout-17b-16e-instruct",
             system_prompt=SYSTEM_PROMPT,
-            user_prompt=user_prompt
+            user_prompt=user_prompt,
         )
         
         res = response['choices'][0]['message']['content']
@@ -44,21 +42,19 @@ class AgentOrchestrator:
         llm_response = json_parser(input_string=res)
         self.memory.append(f"Orchestrator: {llm_response}")
         
+        print(f"{Fore.LIGHTCYAN_EX}Parsed Orchestrator Response: {llm_response} {Style.RESET_ALL}")
+        
         action = llm_response.get("action")
         user_input = llm_response.get("input")
-        
-        print(f"Action identified by LLM: {action}")
-        
+                
         if action == "respond_to_user":
             return llm_response
         
         for agent in self.agents:
             if agent.name.lower() == action.lower():
-                print(f"*******************Found Agent Name :: {action} *******************************")
+                print(f"{Fore.LIGHTMAGENTA_EX}*******************Found Agent Name :: {action} *******************************")
                 agent_response = await agent.process_input(user_input)
-                print(f"{action} response: {agent_response}")
-                self.memory.append(f"Agent t for Task: {agent_response}")
-                print(self.memory)
+                self.memory.append(f"Agent for Task: {agent_response}")
                 return agent_response  
         
     async def run(self):
@@ -73,14 +69,17 @@ class AgentOrchestrator:
 
             response = await self.orchestrate_task(user_input)
 
-            print(f"{Fore.GREEN}Final response: {response}{Style.RESET_ALL}")
+            print(f"{Fore.MAGENTA}Final response: {response}{Style.RESET_ALL}")
 
             if isinstance(response, dict) and response["action"] == "respond_to_user":                
+                print(f"{Fore.GREEN}Final response: {response['input']}{Style.RESET_ALL}")
                 user_input = input(f"{Fore.YELLOW}You: {Style.RESET_ALL}") 
                 self.memory.append(f"User: {user_input}")                
             elif response == "No action or agent needed":
                 print(f"{Fore.MAGENTA}Response from Agent: {response}{Style.RESET_ALL}")
                 user_input = input(f"{Fore.YELLOW}You: {Style.RESET_ALL}")
             else:
+                print(f"{Fore.GREEN}Final Agent Response: {response}{Style.RESET_ALL}")
                 user_input = response
+                
 

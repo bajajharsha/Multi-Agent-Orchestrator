@@ -1,23 +1,36 @@
 import json
 import ast
+import re
+from typing import Any
 
-def json_parser(input_string):
+
+def json_parser(input_string: str) -> Any:
+    def extract_json_block(text):
+        """Extract JSON content from a ```json code block."""
+        match = re.search(r"```json(.*?)```", text, re.DOTALL)
+        if match:
+            return match.group(1).strip()
+        return text  # If no code block, return original string
+
+    # Step 1: Clean the input
+    cleaned_input = extract_json_block(input_string)
+
+    # Step 2: Try JSON decoding
     try:
-        # Attempt to parse the input string as JSON
-        json_dict = json.loads(input_string)
-        if isinstance(json_dict, (dict, list)):
-            return json_dict
+        parsed = json.loads(cleaned_input)
+        if isinstance(parsed, (dict, list)):
+            return parsed
     except json.JSONDecodeError:
-        pass  # If JSON parsing fails, fall back to ast.literal_eval
+        pass
 
+    # Step 3: Try ast.literal_eval
     try:
-        # Attempt to parse the input string as a Python literal
-        python_dict = ast.literal_eval(input_string)
+        python_dict = ast.literal_eval(cleaned_input)
         json_string = json.dumps(python_dict)
-        json_dict = json.loads(json_string)
-        if isinstance(json_dict, (dict, list)):
-            return json_dict
+        parsed = json.loads(json_string)
+        if isinstance(parsed, (dict, list)):
+            return parsed
     except (ValueError, SyntaxError):
         pass
 
-    raise ValueError("Invalid JSON or Python literal response")
+    raise ValueError("Invalid JSON or Python literal or formatted block")
